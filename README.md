@@ -2,7 +2,7 @@
 
 A simple library to keep log and track of experiments
 
-<a href="url"><img src="imgs/watchdog_man_colored.png" align="center" width="200" height="250">
+<a href="url"><img src="imgs/watchdog_man_colored.png" align="center" width="200" height="250"></a>
 
 # How to install
 
