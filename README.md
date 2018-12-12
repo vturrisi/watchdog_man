@@ -21,4 +21,4 @@ pip install . --user
 - Send a message to it from your account
 - Visit https://api.telegram.org/bot<BOT_TOKEN>/getUpdates to get your id
 - Paste your id into tests/chat_id.txt
-- (or ignore example_1.py and add pass it manually)
+- (or ignore example_1.py and pass it manually)
