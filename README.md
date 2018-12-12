@@ -2,7 +2,7 @@
 
 A simple library to keep log and track of experiments
 
-![Atom Screenshot](imgs/watchdog_man_colored.png)
+![Atom Screenshot](imgs/watchdog_man_colored.png =250x250)
 
 # How to install
 
