@@ -68,17 +68,3 @@ class Watcher:
             return nested_f
         return log_wrapper
 
-
-if __name__ == '__main__':
-    w = Watcher()
-
-    @w.log(name='aaaaaaaaa')
-    def test(a, b, c):
-        print('a * b ' + str(a * b))
-        with open('test.txt', 'w') as f:
-            f.write('a b c ' + str(c))
-        return a - b
-
-    test(10, b=30, c=10)
-
-    print(w.logs)
