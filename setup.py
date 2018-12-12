@@ -1,5 +1,4 @@
-from numpy.distutils.core import setup
-
+from setuptools import setup
 
 setup(name='watchdog_man',
       version='0.1.0',
