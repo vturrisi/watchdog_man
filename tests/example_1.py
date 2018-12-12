@@ -5,7 +5,21 @@ if __name__ == '__main__':
     from sklearn import svm, datasets
     from watchdog_man.watcher import Watcher
 
-    w = Watcher()
+    # create a telegram bot and paste its token to telegram_token.txt
+    try:
+        token = open('telegram_token.txt').read().strip()
+    except:
+        token = None
+
+    # to find out your chat id, add your bot and send it a message.
+    # then, visit https://api.telegram.org/bot<BOTID>/getUpdates
+    # and copy/paste the id
+    try:
+        chat_id = open('chat_id.txt').read().strip()
+    except:
+        chat_id = None
+
+    w = Watcher(telegram_token=token)
 
     @w.log(name='test')
     def test(a, b, c):
@@ -14,7 +28,8 @@ if __name__ == '__main__':
             f.write('a b c ' + str(c))
         return a - b
 
-    @w.log(name='test_redirect_files', redirect_files=True)
+    # @w.log(name='test2')
+    @w.notify_via_telegram(name='test2', chat_id=chat_id)
     def test2(a, b, c):
         print('a * b ' + str(a * b))
         with open('test.txt', 'w') as f:
@@ -37,4 +52,4 @@ if __name__ == '__main__':
     test(10, b=30, c=10)
     test2(10, b=30, c=10)
     main(C=1.0, gamma=0.7)
-    pprint(w.logs)
+    # pprint(w.logs)

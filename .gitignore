@@ -1,3 +1,5 @@
+tests/telegram_token.txt
+tests/chat_id.txt
 
 # Created by https://www.gitignore.io/api/python,visualstudio
 # Edit at https://www.gitignore.io/?templates=python,visualstudio
