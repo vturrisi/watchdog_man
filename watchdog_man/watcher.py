@@ -69,7 +69,9 @@ class Watcher:
                             'log files outputs': log_files,
                             'return values': str(return_values)
                             }
-                self.logs[name] = json_log
+
+                execution_name = '{} ({})'.format(name, start_time)
+                self.logs[execution_name] = json_log
             return nested_f
         return log_wrapper
 
