@@ -14,6 +14,13 @@ if __name__ == '__main__':
             f.write('a b c ' + str(c))
         return a - b
 
+    @w.log(name='test_redirect_files', redirect_files=True)
+    def test2(a, b, c):
+        print('a * b ' + str(a * b))
+        with open('test.txt', 'w') as f:
+            f.write('a b c ' + str(c))
+        return a - b
+
     @w.log(name='main')
     def main(C, gamma):
         iris = datasets.load_iris()
@@ -27,5 +34,6 @@ if __name__ == '__main__':
                         iris.target[90:]))
 
     test(10, b=30, c=10)
+    test2(10, b=30, c=10)
     main(C=1.0, gamma=0.7)
     pprint(w.logs)
