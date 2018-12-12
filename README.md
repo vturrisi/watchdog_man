@@ -1,8 +1,8 @@
 # watchdog_man
 
-A simple library to keep log and track of experiments
+<center><img src="imgs/watchdog_man_colored.png" align="middle" width="200" height="250"></center>
 
-<a href="url"><img src="imgs/watchdog_man_colored.png" align="center" width="200" height="250"></a>
+A simple library to keep log and track of experiments
 
 # How to install
 
