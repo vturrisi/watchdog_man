@@ -1,6 +1,14 @@
 # watchdog_man
 
-<p style="text-align: center;"><img src="imgs/watchdog_man_colored.png" width="200" height="250"></p>
+<style>
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
+
+<img src="imgs/watchdog_man_colored.png" width="200" height="250" class="center">
 
 A simple library to keep log and track of experiments
 

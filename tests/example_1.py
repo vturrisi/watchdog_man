@@ -52,4 +52,4 @@ if __name__ == '__main__':
     test(10, b=30, c=10)
     test2(10, b=30, c=10)
     main(C=1.0, gamma=0.7)
-    # pprint(w.logs)
+    pprint(w.logs)

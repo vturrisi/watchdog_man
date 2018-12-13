@@ -24,6 +24,7 @@ class Watcher:
     @contextlib.contextmanager
     def redirect_file_output(self, fname=None, mode='r', *args, **kwargs):
         if mode == 'w':
+            # create a stringio for each file
             if fname not in self.buffers:
                 self.buffers[fname] = StringIO()
             fh = self.buffers[fname]
@@ -49,11 +50,12 @@ class Watcher:
                 start_time = datetime.datetime.now()
                 # redirects function sys.stdout to stringio
                 if collect_print:
-                    # creates stringio
-                    s = StringIO()
-                    with redirect_stdout(s):
+                    # create stringio
+                    sio = StringIO()
+                    # redirect stdout to stringio
+                    with redirect_stdout(sio):
                         return_values = f(*args, **kwargs)
-                    print_data = s.getvalue().splitlines()
+                    print_data = sio.getvalue().splitlines()
                 else:
                     return_values = f(*args, **kwargs)
                     print_data = None
@@ -63,7 +65,6 @@ class Watcher:
                 if collect_files:
                     # restore default behaviour
                     f.__globals__.update(saved_function_context)
-
                     # parse text written to log files inside function
                     files_data = {fname: [s.strip() for s in b.getvalue().splitlines()]
                                   for fname, b in self.buffers.items()}
