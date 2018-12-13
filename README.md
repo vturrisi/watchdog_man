@@ -1,7 +1,7 @@
-# watchdog_man
+# Watchdog Man
 
 <p align="center">
-  <img width="200" height="250" src="imgs/watchdog_man_colored.png">
+  <img width="300" height="420" src="imgs/watchdog_man_colored.png">
 </p>
 
 A simple library to keep log and track of experiments
