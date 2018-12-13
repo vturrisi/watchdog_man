@@ -12,7 +12,7 @@ if __name__ == '__main__':
         token = None
 
     # to find out your chat id, add your bot and send it a message.
-    # then, visit https://api.telegram.org/bot<BOTID>/getUpdates
+    # then, visit https://api.telegram.org/bot<BOTTOKEN>/getUpdates
     # and copy/paste the id
     try:
         chat_id = open('chat_id.txt').read().strip()
@@ -21,14 +21,14 @@ if __name__ == '__main__':
 
     w = Watcher(telegram_token=token)
 
-    @w.log(name='test')
+    @w.log(name='test', collect_print=True, collect_files=True)
     def test(a, b, c):
         print('a * b ' + str(a * b))
         with open('test.txt', 'w') as f:
             f.write('a b c ' + str(c))
         return a - b
 
-    # @w.log(name='test2')
+    @w.log(name='test2', collect_print=True)
     @w.notify_via_telegram(name='test2', chat_id=chat_id)
     def test2(a, b, c):
         print('a * b ' + str(a * b))
@@ -36,7 +36,7 @@ if __name__ == '__main__':
             f.write('a b c ' + str(c))
         return a - b
 
-    @w.log(name='main')
+    @w.log(name='main', collect_print=True)
     def main(C, gamma):
         iris = datasets.load_iris()
         perm = permutation(iris.target.size)
