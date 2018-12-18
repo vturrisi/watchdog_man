@@ -4,7 +4,7 @@
   <img width="300" height="420" src="imgs/watchdog_man_colored.png">
 </p>
 
-A simple library to keep log and track of experiments
+Simple library to log and monitor experiments
 
 # How to install
 

@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(name='watchdog_man',
       version='0.1.0',
-      description='Simple library to monitor experiments',
+      description='Simple library to log and monitor experiments',
       url='https://github.com/vturrisi/watchdog_man',
       author='Victor Turrisi',
       license='MIT',
