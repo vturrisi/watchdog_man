@@ -19,7 +19,7 @@ if __name__ == '__main__':
     except:
         chat_id = None
 
-    w = Watcher(telegram_token=token)
+    w = Watcher(auto_save_logs=True, telegram_token=token)
 
     @w.log(name='test', collect_print=True, collect_files=True)
     def test(a, b, c):
@@ -29,7 +29,7 @@ if __name__ == '__main__':
         return a - b
 
     @w.log(name='test2', collect_print=True)
-    @w.notify_via_telegram(name='test2', chat_id=chat_id)
+    # @w.notify_via_telegram(name='test2', chat_id=chat_id)
     def test2(a, b, c):
         print('a * b ' + str(a * b))
         with open('test.txt', 'w') as f:
@@ -49,7 +49,7 @@ if __name__ == '__main__':
                         iris.target[90:]))
 
     test(10, b=30, c=10)
-    test(10, b=30, c=10)
+    test(10, b=30, c=50)
     test2(10, b=30, c=10)
     main(C=1.0, gamma=0.7)
     pprint(w.logs)

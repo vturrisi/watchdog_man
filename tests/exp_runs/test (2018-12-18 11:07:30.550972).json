@@ -1,0 +1,1 @@
+{"start time": "2018-12-18 11:07:30.550972", "end time": "2018-12-18 11:07:30.551002", "elapsed time": "0:00:00.000030", "input values": "args: (10,) kwargs: {'b': 30, 'c': 50}", "prints": ["a * b 300"], "log files outputs": {"test.txt": ["a b c 10a b c 50"]}, "return values": "-20"}
