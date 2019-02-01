@@ -19,16 +19,16 @@ if __name__ == '__main__':
     except:
         chat_id = None
 
-    w = Watcher(auto_save_logs=True, telegram_token=token)
+    w = Watcher(handle_multiple_calls=True, auto_save_logs=True, telegram_token=token)
 
-    @w.log(name='test', collect_print=True, collect_files=True)
+    @w.log('test', collect_print=True, collect_files=True)
     def test(a, b, c):
         print('a * b ' + str(a * b))
         with open('test.txt', 'w') as f:
             f.write('a b c ' + str(c))
         return a - b
 
-    @w.log(name='test2', collect_print=True)
+    @w.log('test2', collect_print=True)
     # @w.notify_via_telegram(name='test2', chat_id=chat_id)
     def test2(a, b, c):
         print('a * b ' + str(a * b))
@@ -36,9 +36,11 @@ if __name__ == '__main__':
             f.write('a b c ' + str(c))
         return a - b
 
-    @w.log(name='main', collect_print=True)
-    def main(C, gamma):
+    @w.log('main', collect_print=True)
+    @w.object_vault('main')
+    def main(place_holder, C, gamma):
         iris = datasets.load_iris()
+        place_holder.iris = iris
         perm = permutation(iris.target.size)
         iris.data = iris.data[perm]
         iris.target = iris.target[perm]
@@ -52,4 +54,7 @@ if __name__ == '__main__':
     test(10, b=30, c=50)
     test2(10, b=30, c=10)
     main(C=1.0, gamma=0.7)
+
     pprint(w.logs)
+    print(w.vaults)
+    pprint(w.vaults['main_0'])
